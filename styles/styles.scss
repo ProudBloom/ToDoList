@@ -2,27 +2,89 @@
 {
     margin: 0;
     padding: 0;
-    font-family: Helvetica, sans-serif;
+    font-family: Roboto, sans-serif;
 }
 
-$color: #484430;
+$primary-color: #484430;
+$secondary-color: #f1f1f1;
+$white: #fff;
+$light-grey: #dddddd;
+$grey: #bbbbbb;
+$red: #b00b1e;
 
 @mixin abs_center 
 {
     margin: 0;
     position: absolute;
-    top: 50%;
     left: 50%;
-    -ms-transform: translate(-50%, -50%);
+    top: 50%;
     transform: translate(-50%, -50%);
 }
 
 body
 {
-    background-color: #f1f1f1;
+    background-color: $secondary-color;
 
     .todo-list
     {
         @include abs_center;
+        font-size: 1rem;
+
+        .content-table
+        {
+            table-layout: fixed;
+            border-collapse: collapse;
+            width: 100%;
+            margin: 25px 0;
+            font-size: .9em;
+            min-width: 600px;
+            border: 1px solid $light-grey;
+            box-shadow: 0 0 2px rgba(0, 0, 0, .2);
+            
+                thead
+                {
+                    tr
+                    {
+                        background-color: $primary-color;
+                        color: $white;
+                        text-align: left;
+                    }
+                }
+
+                tbody
+                {
+                    .wide-col
+                    {
+                        width: 450px;
+                    }
+
+                    tr
+                    {
+                        background-color: $white;
+                        border-bottom: 1px solid $light-grey;
+
+                        .delete-btn
+                        {
+                            outline: none;
+                            border: none;
+                            background-color: $white;
+                            color: $red;
+                            margin-left: 10%;
+                            transform: scale(1.5);
+                        }
+                    }
+                }
+
+                tfoot
+                {
+                    background-color: $white;
+                }
+
+                th, td
+                {
+                    padding: 12px 15px;
+                    font-weight: normal;
+                }
+        }
     }
 }

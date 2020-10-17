@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>To Do List</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
     <link rel="icon" href="./assets/list.svg">
     <link rel="stylesheet" href="./styles/styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -19,23 +20,31 @@
                 </tr>
             </thead>
             <tbody>
+                <col span="1" class="wide-col"/>
                 <tr>
                     <td>Task1</td>
                     <td>Low</td>
-                    <td><input type="checkbox"/></td>
-                    <td><button class="btn"><i class="fa fa-trash"></i></button></td>
+                    <td><input type="checkbox"/><button class="delete-btn"><i class="fa fa-trash"></i></button></td>
                 </tr>
                 <tr>
                     <td>Task2</td>
                     <td>Medium</td>
-                    <td><input type="checkbox"/></td>
-                    <td><button class="btn"><i class="fa fa-trash"></i></button></td>
+                    <td><input type="checkbox"/><button class="delete-btn"><i class="fa fa-trash"></i></button></td>
                 </tr>
                 <tr>
                     <td>Task3</td>
                     <td>High</td>
-                    <td><input type="checkbox"/></td>
-                    <td><button class="btn"><i class="fa fa-trash"></i></button></td>
+                    <td><input type="checkbox"/><button class="delete-btn"><i class="fa fa-trash"></i></button></td>
+                </tr>
+                <tr>
+                    <td>Task4</td>
+                    <td>High</td>
+                    <td><input type="checkbox"/><button class="delete-btn"><i class="fa fa-trash"></i></button></td>
+                </tr>
+                <tr>
+                    <td>Task5</td>
+                    <td>Low</td>
+                    <td><input type="checkbox"/><button class="delete-btn"><i class="fa fa-trash"></i></button></td>
                 </tr>
             </tbody>
             <tfoot>
@@ -48,14 +57,13 @@
                             <option value="15">15</option>
                         </select>
                     </td>
-                    <td>1-5 of 11</td>
-                    <td><button>&lt</button></td>
-                    <td><button>&gt</button>
-                    </td>
+                    <td>1-5 of 11 <button>&lt</button> <button>&gt</button> </td>
                 </tr>
             </tfoot>
         </table>
     </section>
-    <button>ADD TASK</button>
+    <section class="add-task">
+        <button>ADD TASK</button>
+    </section>
 </body>
 </html>

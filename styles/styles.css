@@ -1,7 +1,7 @@
 * {
   margin: 0;
   padding: 0;
-  font-family: Helvetica, sans-serif;
+  font-family: Roboto, sans-serif;
 }
 
 body {
@@ -11,9 +11,56 @@ body {
 body .todo-list {
   margin: 0;
   position: absolute;
-  top: 50%;
   left: 50%;
+  top: 50%;
   -webkit-transform: translate(-50%, -50%);
           transform: translate(-50%, -50%);
+  font-size: 1rem;
+}
+
+body .todo-list .content-table {
+  table-layout: fixed;
+  border-collapse: collapse;
+  width: 100%;
+  margin: 25px 0;
+  font-size: .9em;
+  min-width: 600px;
+  border: 1px solid #dddddd;
+  -webkit-box-shadow: 0 0 2px rgba(0, 0, 0, 0.2);
+          box-shadow: 0 0 2px rgba(0, 0, 0, 0.2);
+}
+
+body .todo-list .content-table thead tr {
+  background-color: #484430;
+  color: #fff;
+  text-align: left;
+}
+
+body .todo-list .content-table tbody .wide-col {
+  width: 450px;
+}
+
+body .todo-list .content-table tbody tr {
+  background-color: #fff;
+  border-bottom: 1px solid #dddddd;
+}
+
+body .todo-list .content-table tbody tr .delete-btn {
+  outline: none;
+  border: none;
+  background-color: #fff;
+  color: #b00b1e;
+  margin-left: 10%;
+  -webkit-transform: scale(1.5);
+          transform: scale(1.5);
+}
+
+body .todo-list .content-table tfoot {
+  background-color: #fff;
+}
+
+body .todo-list .content-table th, body .todo-list .content-table td {
+  padding: 12px 15px;
+  font-weight: normal;
 }
 /*# sourceMappingURL=styles.css.map */
