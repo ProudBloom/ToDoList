@@ -4,10 +4,58 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>To Do List</title>
-    <link rel="icon" href="./assets/logo.svg">
+    <link rel="icon" href="./assets/list.svg">
     <link rel="stylesheet" href="./styles/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 <body>
-    <h1>To do list application</h1>
+    <section class="todo-list">
+        <table class="content-table">
+            <thead>
+                <tr>
+                    <th>Task name</th>
+                    <th>Priority</th>
+                    <th>Done</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Task1</td>
+                    <td>Low</td>
+                    <td><input type="checkbox"/></td>
+                    <td><button class="btn"><i class="fa fa-trash"></i></button></td>
+                </tr>
+                <tr>
+                    <td>Task2</td>
+                    <td>Medium</td>
+                    <td><input type="checkbox"/></td>
+                    <td><button class="btn"><i class="fa fa-trash"></i></button></td>
+                </tr>
+                <tr>
+                    <td>Task3</td>
+                    <td>High</td>
+                    <td><input type="checkbox"/></td>
+                    <td><button class="btn"><i class="fa fa-trash"></i></button></td>
+                </tr>
+            </tbody>
+            <tfoot>
+                <tr>
+                    <td>Rows per page:</td>
+                    <td>
+                        <select>
+                            <option value="5">5</option>
+                            <option value="10">10</option>
+                            <option value="15">15</option>
+                        </select>
+                    </td>
+                    <td>1-5 of 11</td>
+                    <td><button>&lt</button></td>
+                    <td><button>&gt</button>
+                    </td>
+                </tr>
+            </tfoot>
+        </table>
+    </section>
+    <button>ADD TASK</button>
 </body>
 </html>

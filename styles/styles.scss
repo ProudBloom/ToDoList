@@ -4,3 +4,25 @@
     padding: 0;
     font-family: Helvetica, sans-serif;
 }
+
+$color: #484430;
+
+@mixin abs_center 
+{
+    margin: 0;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+}
+
+body
+{
+    background-color: #f1f1f1;
+
+    .todo-list
+    {
+        @include abs_center;
+    }
+}
