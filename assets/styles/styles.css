@@ -77,6 +77,7 @@ body .todo-list .content-table tbody tr:hover {
 body .todo-list .content-table tbody tr:hover .delete-btn {
   display: inline-block;
   background-color: #dddddd;
+  cursor: pointer;
 }
 
 body .todo-list .content-table tfoot {

@@ -100,6 +100,7 @@ body
                         {
                             display: inline-block;
                             background-color: $light-grey;
+                            cursor: pointer;
                         }
                     }
                 }
@@ -131,29 +132,6 @@ body
                 font-weight: normal;
             }
         }
-
-        // .table-sortable
-        // {
-        //     th
-        //     {
-        //         cursor: pointer;
-        //     }
-        //     .th-sort-asc, .th-sort-desc
-        //     {
-        //         background: rgba(0, 0, 0, 0.2);
-        //     }
-        //     .th-sort-asc::after
-        //     {
-        //         content: "\25b4";
-        //         margin-left: 5px;
-        //     }
-        //     .th-sort-desc::after
-        //     {
-        //         content: "\25be";
-        //         margin-left: 5px;
-        //     }
-
-        // }
         .add-task-btn
         {
             @include style_button(white, $primary-color)
