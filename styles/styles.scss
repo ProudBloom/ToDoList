@@ -8,7 +8,6 @@
 
 $primary-color: #484430;
 $secondary-color: #f1f1f1;
-$white: #fff;
 $light-grey: #dddddd;
 $grey: #c4c4c4;
 $red: #b00b1e;
@@ -20,6 +19,23 @@ $red: #b00b1e;
     left: 50%;
     top: 50%;
     transform: translate(-50%, -50%);
+}
+
+@mixin style_button($color, $background-color)
+{
+    border: none;
+    color: $color;
+    background-color: $background-color;
+    padding: 15px 40px;
+    border-radius: 2px;
+    box-shadow: 2px 2px 4px rgba(0, 0, 0, .2);
+    transition: ease .2s;
+
+    &:hover
+    {
+        transform: scale(1.2);
+        cursor: pointer;
+    }
 }
 
 body
@@ -57,7 +73,7 @@ body
                 tr
                 {
                     background-color: $primary-color;
-                    color: $white;
+                    color: white;
                     text-align: left;
                 }
             }
@@ -67,25 +83,26 @@ body
 
                 tr
                 {
-                    background-color: $white;
+                    background-color: white;
                     border-bottom: 1px solid $light-grey;
 
                     .delete-btn
                     {
                         display: none;
                         border: none;
-                        background-color: $white;
+                        background-color: white;
                         color: $red;
                         margin-left: 10%;
                         transform: scale(1.5);
                     }
-                }:hover
-                {
-                    background-color: $light-grey;
-                    .delete-btn
+                    &:hover
                     {
-                        display: inline-block;
                         background-color: $light-grey;
+                        .delete-btn
+                        {
+                            display: inline-block;
+                            background-color: $light-grey;
+                        }
                     }
                 }
 
@@ -93,7 +110,7 @@ body
 
             tfoot
             {
-                background-color: $white;
+                background-color: white;
                 text-align: right;
 
                 select
@@ -108,7 +125,7 @@ body
                     font-weight: bold;
                     font-size: 1.2rem;
                     border: none;
-                    background-color: $white;
+                    background-color: white;
                 }
             }
 
@@ -121,19 +138,73 @@ body
 
         .add-task-btn
         {
-            border: none;
-            background-color: $primary-color;
-            padding: 15px 40px;
-            color: $white;
-            border-radius: 2px;
-            box-shadow: 2px 2px 4px rgba(0, 0, 0, .2);
-            transition: ease .2s;
+            @include style_button(white, $primary-color)
+        }
+    }
 
-            &:hover
+    .bg-modal
+    {
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.65);
+        position: absolute;
+        top: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        display: none;
+
+        .modal-content
+        {
+            width: 450px;
+            height: 250px;
+            background-color: white;
+            border-radius: 4px;
+            text-align: center;
+            padding: 20px;
+            position: relative;
+            
+            h2
             {
-                transform: scale(1.2);
-                cursor: pointer;
+                margin-bottom: 5%;
+                color: $primary-color;
+            }
+
+            form
+            {
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+
+                input
+                {
+                    margin-bottom: 20px;
+                    padding: 5px 10px;
+                    border: 2px solid $primary-color;
+                }
+            }
+
+            button
+            {
+                @include style_button(white, $primary-color)
+            }
+
+            .close-modal
+            {
+                font-size: 2rem;
+                color: $primary-color;
+                position: absolute;
+                top: 5px;
+                right: 15px;
+                transform: rotate(45deg);
+                &:hover
+                {
+                    cursor: pointer;
+                }
             }
         }
+
+
     }
 }

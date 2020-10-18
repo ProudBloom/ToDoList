@@ -8,6 +8,7 @@
     <link rel="icon" href="./assets/list.svg">
     <link rel="stylesheet" href="./styles/styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="./scripts/close-modal.js" defer></script>
 </head>
 <body>
     <section class="todo-list">
@@ -66,5 +67,18 @@
         </table>
         <button class="add-task-btn">ADD TASK</button>
     </section>
+    <div class="bg-modal">
+        <div class="modal-content">
+            <div class="close-modal">+</div>
+            <h2>Add a task</h2>
+            <form>
+                <label for="task-name">Task name</label>
+                <input type="text" name="task-name">
+                <label for="task-priority">Priority</label>
+                <input type="text" name="task-priority">
+                <button>ADD</button>
+            </form>
+        </div>
+    </div>
 </body>
 </html>
