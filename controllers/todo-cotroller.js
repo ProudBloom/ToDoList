@@ -1,8 +1,6 @@
 const bodyParser = require('body-parser');
 
-var data = [
-    
-];
+var data = [];
 var urlEncodedParser = bodyParser.urlencoded({extended: false});
 
 module.exports = function(app)
@@ -18,8 +16,11 @@ module.exports = function(app)
         res.json({todos: data});
     });
 
-    app.delete('/todolist', function(req, res)
+    app.delete('/todolist/:taskName', function(req, res)
     {
-
+        data = data.filter(function(todo){
+            return todo.taskName.replace(/ /g, '-') !== req.params.taskName;
+        });
+        res.json({todos: data})
     });
 }

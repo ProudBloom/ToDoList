@@ -14,7 +14,13 @@ $(document).ready(function(){
     });
   
     $('.delete-btn').on('click', function(){
-        
+        let item = $(this).attr('id').replace(/ /g, '-');
+        console.log(item);
+        $.ajax({ type: 'DELETE', url: '/todolist/' + item,
+          success: function(data){
+            location.reload();
+          }
+        });
     });
   
   });
