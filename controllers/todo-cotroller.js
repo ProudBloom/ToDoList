@@ -1,8 +1,9 @@
+const bodyParser = require('body-parser');
+
 var data = [
-    {taskName: 'take the trash', taskPriority: 'low'},
-    {taskName: 'get milk', taskPriority: 'low'},
-    {taskName: 'walk the dog', taskPriority: 'high'},
-]
+    
+];
+var urlEncodedParser = bodyParser.urlencoded({extended: false});
 
 module.exports = function(app)
 {
@@ -11,9 +12,10 @@ module.exports = function(app)
         res.render('todolist', {todos: data});
     });
 
-    app.post('/todolist', function(req, res)
+    app.post('/todolist', urlEncodedParser, function(req, res)
     {
-
+        data.push(req.body);
+        res.json({todos: data});
     });
 
     app.delete('/todolist', function(req, res)
