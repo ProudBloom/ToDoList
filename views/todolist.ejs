@@ -11,6 +11,7 @@
     <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
     <script src="scripts/todo.js"></script>
     <script src="scripts/modal-controller.js"></script>
+    <script src="scripts/table-pagination.js"></script>
 </head>
 <body>
     <section class="todo-list">
@@ -38,11 +39,11 @@
                 </tr>
                 <% } %>
             </tbody>
-            <tfoot>
+            <tfoot id="footer">
                 <tr>
                     <td colspan="3">
                         Rows per page:
-                        <select>
+                        <select id="max-rows">
                             <option value="5">5</option>
                             <option value="10">10</option>
                             <option value="15">15</option>
