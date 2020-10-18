@@ -2,6 +2,7 @@
   margin: 0;
   padding: 0;
   font-family: Roboto, sans-serif;
+  outline: none;
 }
 
 body {
@@ -16,6 +17,19 @@ body .todo-list {
   -webkit-transform: translate(-50%, -50%);
           transform: translate(-50%, -50%);
   font-size: 1rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
 
 body .todo-list .content-table {
@@ -25,9 +39,14 @@ body .todo-list .content-table {
   margin: 25px 0;
   font-size: .9em;
   min-width: 600px;
+  max-width: 800px;
   border: 1px solid #dddddd;
   -webkit-box-shadow: 0 0 2px rgba(0, 0, 0, 0.2);
           box-shadow: 0 0 2px rgba(0, 0, 0, 0.2);
+}
+
+body .todo-list .content-table .wide-col {
+  width: 55%;
 }
 
 body .todo-list .content-table thead tr {
@@ -36,17 +55,13 @@ body .todo-list .content-table thead tr {
   text-align: left;
 }
 
-body .todo-list .content-table tbody .wide-col {
-  width: 450px;
-}
-
 body .todo-list .content-table tbody tr {
   background-color: #fff;
   border-bottom: 1px solid #dddddd;
 }
 
 body .todo-list .content-table tbody tr .delete-btn {
-  outline: none;
+  display: none;
   border: none;
   background-color: #fff;
   color: #b00b1e;
@@ -55,12 +70,53 @@ body .todo-list .content-table tbody tr .delete-btn {
           transform: scale(1.5);
 }
 
+body .todo-list .content-table tbody :hover {
+  background-color: #dddddd;
+}
+
+body .todo-list .content-table tbody :hover .delete-btn {
+  display: inline-block;
+  background-color: #dddddd;
+}
+
 body .todo-list .content-table tfoot {
+  background-color: #fff;
+  text-align: right;
+}
+
+body .todo-list .content-table tfoot select {
+  border: none;
+  padding-right: 10px;
+}
+
+body .todo-list .content-table tfoot .fa {
+  padding: 2px 7px;
+  font-weight: bold;
+  font-size: 1.2rem;
+  border: none;
   background-color: #fff;
 }
 
 body .todo-list .content-table th, body .todo-list .content-table td {
-  padding: 12px 15px;
+  padding: 16px 20px;
   font-weight: normal;
+}
+
+body .todo-list .add-task-btn {
+  border: none;
+  background-color: #484430;
+  padding: 15px 40px;
+  color: #fff;
+  border-radius: 2px;
+  -webkit-box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+          box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+  -webkit-transition: ease .2s;
+  transition: ease .2s;
+}
+
+body .todo-list .add-task-btn:hover {
+  -webkit-transform: scale(1.2);
+          transform: scale(1.2);
+  cursor: pointer;
 }
 /*# sourceMappingURL=styles.css.map */

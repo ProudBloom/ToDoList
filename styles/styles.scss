@@ -3,13 +3,14 @@
     margin: 0;
     padding: 0;
     font-family: Roboto, sans-serif;
+    outline: none;
 }
 
 $primary-color: #484430;
 $secondary-color: #f1f1f1;
 $white: #fff;
 $light-grey: #dddddd;
-$grey: #bbbbbb;
+$grey: #c4c4c4;
 $red: #b00b1e;
 
 @mixin abs_center 
@@ -29,6 +30,10 @@ body
     {
         @include abs_center;
         font-size: 1rem;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
 
         .content-table
         {
@@ -38,53 +43,97 @@ body
             margin: 25px 0;
             font-size: .9em;
             min-width: 600px;
+            max-width: 800px;
             border: 1px solid $light-grey;
             box-shadow: 0 0 2px rgba(0, 0, 0, .2);
+
+            .wide-col
+            {
+                width: 55%;
+            }
             
-                thead
+            thead
+            {
+                tr
                 {
-                    tr
-                    {
-                        background-color: $primary-color;
-                        color: $white;
-                        text-align: left;
-                    }
+                    background-color: $primary-color;
+                    color: $white;
+                    text-align: left;
                 }
+            }
 
-                tbody
-                {
-                    .wide-col
-                    {
-                        width: 450px;
-                    }
+            tbody
+            {
 
-                    tr
-                    {
-                        background-color: $white;
-                        border-bottom: 1px solid $light-grey;
-
-                        .delete-btn
-                        {
-                            outline: none;
-                            border: none;
-                            background-color: $white;
-                            color: $red;
-                            margin-left: 10%;
-                            transform: scale(1.5);
-                        }
-                    }
-                }
-
-                tfoot
+                tr
                 {
                     background-color: $white;
+                    border-bottom: 1px solid $light-grey;
+
+                    .delete-btn
+                    {
+                        display: none;
+                        border: none;
+                        background-color: $white;
+                        color: $red;
+                        margin-left: 10%;
+                        transform: scale(1.5);
+                    }
+                }:hover
+                {
+                    background-color: $light-grey;
+                    .delete-btn
+                    {
+                        display: inline-block;
+                        background-color: $light-grey;
+                    }
                 }
 
-                th, td
+            }
+
+            tfoot
+            {
+                background-color: $white;
+                text-align: right;
+
+                select
                 {
-                    padding: 12px 15px;
-                    font-weight: normal;
+                    border: none;
+                    padding-right: 10px;
                 }
+
+                .fa
+                {
+                    padding: 2px 7px;
+                    font-weight: bold;
+                    font-size: 1.2rem;
+                    border: none;
+                    background-color: $white;
+                }
+            }
+
+            th, td
+            {
+                padding: 16px 20px;
+                font-weight: normal;
+            }
+        }
+
+        .add-task-btn
+        {
+            border: none;
+            background-color: $primary-color;
+            padding: 15px 40px;
+            color: $white;
+            border-radius: 2px;
+            box-shadow: 2px 2px 4px rgba(0, 0, 0, .2);
+            transition: ease .2s;
+
+            &:hover
+            {
+                transform: scale(1.2);
+                cursor: pointer;
+            }
         }
     }
 }

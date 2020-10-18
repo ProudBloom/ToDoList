@@ -20,7 +20,7 @@
                 </tr>
             </thead>
             <tbody>
-                <col span="1" class="wide-col"/>
+                <col span="1" class="wide-col">
                 <tr>
                     <td>Task1</td>
                     <td>Low</td>
@@ -49,21 +49,22 @@
             </tbody>
             <tfoot>
                 <tr>
-                    <td>Rows per page:</td>
-                    <td>
+                    <td colspan="3">
+                        Rows per page:
                         <select>
                             <option value="5">5</option>
                             <option value="10">10</option>
                             <option value="15">15</option>
                         </select>
+                    
+                        <span class="task-no-from">1</span> - <span class="task-no-to">5</span> of <span class="tasks-no">11</span>
+                        <i class="fa fa-angle-left" aria-hidden="true"></i>
+                        <i class="fa fa-angle-right" aria-hidden="true"></i>
                     </td>
-                    <td>1-5 of 11 <button>&lt</button> <button>&gt</button> </td>
                 </tr>
             </tfoot>
         </table>
-    </section>
-    <section class="add-task">
-        <button>ADD TASK</button>
+        <button class="add-task-btn">ADD TASK</button>
     </section>
 </body>
 </html>
