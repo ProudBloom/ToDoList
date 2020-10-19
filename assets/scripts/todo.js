@@ -6,11 +6,15 @@ $(document).ready(function(){
         let taskPriority = $('#task-priority');
         let todo = {taskName: taskName.val(), taskPriority: taskPriority.val()};
     
-        $.ajax({type: 'POST', url: '/todolist', data: todo, success: function(data){
-            location.reload();
-          }
-        });
-        return false;
+        if(!(taskPriority.val() === 'Low' || taskPriority.val() === 'Medium' || taskPriority.val() === 'High')) alert('Task priority must be of values : Low/Medium/High');
+        else
+        {
+          $.ajax({type: 'POST', url: '/todolist', data: todo, success: function(data){
+              location.reload();
+            }
+          });
+          return false;
+        }
     });
   
     $('.delete-btn').on('click', function(){

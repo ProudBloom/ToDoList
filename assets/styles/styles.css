@@ -90,7 +90,7 @@ body .todo-list .content-table tfoot select {
   padding-right: 10px;
 }
 
-body .todo-list .content-table tfoot .fa {
+body .todo-list .content-table tfoot button {
   padding: 2px 7px;
   font-weight: bold;
   font-size: 1.2rem;
