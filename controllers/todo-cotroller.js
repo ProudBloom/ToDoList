@@ -9,6 +9,7 @@ var todoSchema = new mongoose.Schema({
     taskName: String,
     taskPriority: String
 });
+
 //Model of data inside the collection
 var Todo = mongoose.model('Todo', todoSchema);
 
@@ -19,7 +20,7 @@ module.exports = function(app)
         Todo.find({}, function(err, data){
             if(err) throw err;
             res.render('todolist', {todos: data});
-        }); //Get all te items from collection and pass to the view
+        }); //Get all the items from collection and pass to the view
     });
 
     app.post('/todolist', urlEncodedParser, function(req, res)

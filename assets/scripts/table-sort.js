@@ -1,13 +1,12 @@
 $(document).ready(function()
 {
-
     function sortTableByColumn(table, column, asc = true)
     {
         const dirModifier = asc ? 1 : -1;
         const tBody = table.tBodies[1];
         const rows = Array.from(tBody.querySelectorAll('tr'));
 
-        const sortedRows = rows.sort((a, b) =>
+        const sortedRows = rows.sort(function(a, b)
         {
             const aColText = a.querySelector(`td:nth-child(${ column + 1 })`).textContent.trim();
             const bColText = b.querySelector(`td:nth-child(${ column + 1 })`).textContent.trim();

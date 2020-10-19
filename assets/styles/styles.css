@@ -91,6 +91,7 @@ body .todo-list .content-table tfoot button {
   font-size: 1.2rem;
   border: none;
   background-color: white;
+  cursor: pointer;
 }
 
 body .todo-list .content-table th, body .todo-list .content-table td {

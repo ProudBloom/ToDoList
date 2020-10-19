@@ -1,53 +1,73 @@
 $(document).ready(function()
-{   
-    var currentPage = 1;
-    var pagesTotal = Math.ceil($('.content-table tbody tr').length / $('#max-rows').val());
-
-    paginationDisplay(1, 15, $('.content-table tbody tr').length);
+{
+    let currentPage = 1;
+    let pagesTotal = 1;
     
-    $('#max-rows').on('change', function()
-    {
-        paginationDisplay(1, parseInt($(this).val()), $('.content-table tbody tr').length);
+    rowsPerPageHandler(15);
+    footerDisplayHandler(1, 15, $('.content-table tbody tr').length);
+
+    //On rows per page selection
+    $('#max-rows').on('change', function(){
+        rowsPerPageHandler(parseInt($(this).val()));
         pagesTotal = Math.ceil($('.content-table tbody tr').length / $('#max-rows').val());
-        currentPage = 1;
-        console.log('Pages total : ' + pagesTotal);
+        footerDisplayHandler(1, parseInt($(this).val()), $('.content-table tbody tr').length);
     });
 
+    //On next page button click
     $('tfoot .next-page').on('click', function()
     {
         if(currentPage < pagesTotal)
         {
             let startingRow = 1 +  parseInt($('#max-rows').val()) * currentPage;
-            paginationDisplay(startingRow, parseInt($('#max-rows').val()), $('.content-table tbody tr').length);
             currentPage++;
-            console.log('Current page : ' + currentPage);
+            pagingHandler(startingRow, currentPage, parseInt($('#max-rows').val()));
+            footerDisplayHandler(startingRow, parseInt($('#max-rows').val()) * currentPage, $('.content-table tbody tr').length);
         }
     });
 
+    //On prevoius page button click
     $('tfoot .prev-page').on('click', function()
     {
         if(currentPage > 1)
         {
             currentPage--;
             let startingRow = currentPage * parseInt($('#max-rows').val()) - (parseInt($('#max-rows').val()) - 1);
-            paginationDisplay(startingRow, parseInt($('#max-rows').val()), $('.content-table tbody tr').length);
-            console.log('Current page : ' + currentPage);
+            pagingHandler(startingRow, currentPage, parseInt($('#max-rows').val()));
+            footerDisplayHandler(startingRow, parseInt($('#max-rows').val()) * currentPage, $('.content-table tbody tr').length);
         }
     });
-    
 
-    function paginationDisplay(startingRow, maxRows, rowsTotal)
+    /**
+     * Handles how many rows to display basing on selected value (inside select element)
+     * @param {number} maxRows maximum number of rows to be displayed at once
+     */
+    function rowsPerPageHandler(maxRows)
     {
-        console.log('Starting row : ' + startingRow);
-        var currentRow = startingRow;
-
-        $('.content-table tbody tr:gt(0)').each(function(){
-            currentRow++;
-            if(currentRow >= startingRow && currentRow <= currentPage * maxRows) $(this).show();
-            else $(this).hide();
+        let rowsNum = 1;
+        $('.content-table tbody tr:gt(0)').each(function(){	
+            rowsNum++;	
+            if(rowsNum > maxRows) $(this).hide();	
+            else if(rowsNum <= maxRows) $(this).show();	
         });
-
-        $('.task-no-to').html(maxRows);
-        $('.tasks-no').html(rowsTotal);
     }
-});
+
+    
+    function pagingHandler(startingRow, currentPage, maxRows)
+    {
+        $('.content-table tbody tr').each(function(currentRow = 0){
+            $(this).hide();
+            currentRow++;
+            if(currentRow >= startingRow && currentRow <= currentPage * maxRows)
+            {
+                $(this).show();
+            }
+        });
+    }
+
+    function footerDisplayHandler(taskFrom, taskTo, tasksTotal)
+    {
+        $('.task-no-from').html(taskFrom);
+        $('.task-no-to').html(taskTo);
+        $('.tasks-no').html(tasksTotal);
+    }
+}); 
