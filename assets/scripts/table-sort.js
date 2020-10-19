@@ -1,11 +1,18 @@
 $(document).ready(function()
 {
+    /**
+     * Sorts an HTML table.
+     * @param {HTMLTableElement} table The table to sort
+     * @param {number} column The index of the column to sort
+     * @param {boolean} asc Determines if the sorting will be in ascending
+     */
     function sortTableByColumn(table, column, asc = true)
     {
         const dirModifier = asc ? 1 : -1;
         const tBody = table.tBodies[1];
         const rows = Array.from(tBody.querySelectorAll('tr'));
 
+        //Sort the rows at a given column
         const sortedRows = rows.sort(function(a, b)
         {
             const aColText = a.querySelector(`td:nth-child(${ column + 1 })`).textContent.trim();
@@ -29,6 +36,7 @@ $(document).ready(function()
         else if(asc === false) table.querySelector(`th:nth-child(${ column + 1})`).classList.toggle("th-sort-desc");
     }
 
+    //Apply the sorting on a column that has been clicked
     document.querySelectorAll('.table-sortable th').forEach(headerCell => {
         headerCell.addEventListener('click', () =>
         {

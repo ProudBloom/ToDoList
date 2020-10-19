@@ -13,6 +13,7 @@ var todoSchema = new mongoose.Schema({
 //Model of data inside the collection
 var Todo = mongoose.model('Todo', todoSchema);
 
+//Request handlers
 module.exports = function(app)
 {
     app.get('/todolist', function(req, res)
@@ -20,7 +21,7 @@ module.exports = function(app)
         Todo.find({}, function(err, data){
             if(err) throw err;
             res.render('todolist', {todos: data});
-        }); //Get all the items from collection and pass to the view
+        });
     });
 
     app.post('/todolist', urlEncodedParser, function(req, res)

@@ -1,7 +1,7 @@
 $(document).ready(function(){
 
+    //Add task logic
     $('.todolist-form').on('submit', function(){
-  
         let taskName = $('#task-name');
         let taskPriority = $('#task-priority');
         let todo = {taskName: taskName.val(), taskPriority: taskPriority.val()};
@@ -17,6 +17,7 @@ $(document).ready(function(){
         }
     });
   
+    //Remove task logic
     $('.delete-btn').on('click', function(){
         let item = $(this).attr('id').replace(/ /g, '-');
         console.log(item);

@@ -51,7 +51,12 @@ $(document).ready(function()
         });
     }
 
-    
+    /**
+     * Handles which rows should be displayed on which page of the list
+     * @param {number} startingRow first row of the page selected
+     * @param {number} currentPage page that is currently selected
+     * @param {number} maxRows maximum number of rows to be displayed at once 
+     */
     function pagingHandler(startingRow, currentPage, maxRows)
     {
         $('.content-table tbody tr').each(function(currentRow = 0){
@@ -64,6 +69,12 @@ $(document).ready(function()
         });
     }
 
+    /**
+     * Handles the data displayed in the footer
+     * @param {number} taskFrom first task to be displayed on a given page
+     * @param {number} taskTo last task to be displayed on a given page
+     * @param {number} tasksTotal total amount of tasks
+     */
     function footerDisplayHandler(taskFrom, taskTo, tasksTotal)
     {
         $('.task-no-from').html(taskFrom);
