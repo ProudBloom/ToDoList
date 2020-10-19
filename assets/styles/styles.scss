@@ -191,3 +191,29 @@ body
         }
     }
 }
+
+.table-sortable
+{
+    th
+    {
+        cursor: pointer;
+    }
+    .th-sort-asc
+    {
+        background-color: rgba(0, 0, 0, .1);
+        &::after
+        {
+            content: "\25b4";
+            margin-left: 5px;
+        }
+    }
+    .th-sort-desc
+    {
+        background-color: rgba(0, 0, 0, .1);
+        &::after
+        {
+            content: "\25be";
+            margin-left: 5px;
+        }
+    }
+}

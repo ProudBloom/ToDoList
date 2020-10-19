@@ -202,4 +202,26 @@ body .bg-modal .modal-content .close-modal {
 body .bg-modal .modal-content .close-modal:hover {
   cursor: pointer;
 }
+
+.table-sortable th {
+  cursor: pointer;
+}
+
+.table-sortable .th-sort-asc {
+  background-color: rgba(0, 0, 0, 0.1);
+}
+
+.table-sortable .th-sort-asc::after {
+  content: "\25b4";
+  margin-left: 5px;
+}
+
+.table-sortable .th-sort-desc {
+  background-color: rgba(0, 0, 0, 0.1);
+}
+
+.table-sortable .th-sort-desc::after {
+  content: "\25be";
+  margin-left: 5px;
+}
 /*# sourceMappingURL=styles.css.map */
