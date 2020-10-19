@@ -39,7 +39,7 @@ $(document).ready(function()
     function paginationDisplay(startingRow, maxRows, rowsTotal)
     {
         console.log('Starting row : ' + startingRow);
-        var currentRow = startingRow - 1;
+        var currentRow = startingRow;
 
         $('.content-table tbody tr:gt(0)').each(function(){
             currentRow++;
